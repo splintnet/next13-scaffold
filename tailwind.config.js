@@ -93,8 +93,11 @@ module.exports = {
   },
 
   plugins: [
-    // require('@tailwindcss/forms'),
+    // eslint-disable-next-line global-require
+    require('@tailwindcss/forms'),
+    // eslint-disable-next-line global-require
     require('@tailwindcss/typography'),
+    // eslint-disable-next-line global-require
     require('@tailwindcss/aspect-ratio'),
   ],
 };

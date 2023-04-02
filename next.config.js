@@ -45,8 +45,10 @@ module.exports = withPlugins([
   ],
 
   {
-    i18n,
     reactStrictMode: true,
+    output: 'standalone',
+
+    i18n,
 
     images: {
       minimumCacheTTL: 31536000,

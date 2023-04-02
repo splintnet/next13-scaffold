@@ -1,0 +1,34 @@
+version: "3.5"
+
+services:
+  nextjs:
+    image: ghcr.io/splintnet/next13-scaffold/next
+    env_file: ./.env
+    restart: unless-stopped
+    networks:
+      - nextjs
+      - traefik
+    volumes:
+      - "./cache:/app/.next/cache"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.next.rule=Host(`www.next13.de`,`next13.de`)"
+      - "traefik.http.routers.next.tls.certresolver=myhttpchallenge"
+      - "traefik.http.routers.next.entrypoints=websecure"
+      - "traefik.http.routers.next.tls=true"
+      - "traefik.http.services.next.loadbalancer.server.port=3000"
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    networks:
+      - nextjs
+    command: --maxclients 10000 --timeout 15
+
+volumes:
+  cache:
+
+networks:
+  nextjs:
+  traefik:
+    external: true

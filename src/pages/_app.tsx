@@ -5,6 +5,7 @@ import Scripts from '@/components/PageHelper/Scripts';
 export function reportWebVitals(metric: any) {
   console.log(metric);
 }
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>

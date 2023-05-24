@@ -4,3 +4,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  body #cm,
+  body #s-inr,
+  body #s-inr .c-bl,
+  body #cm .c-bn,
+  body #s-inr .c-bn {
+    @apply rounded-lg
+  }
+
+  body #cm #c-p-bn,
+  body #s-inr #s-all-bn {
+    @apply bg-primary text-black;
+  }
+
+}

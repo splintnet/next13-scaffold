@@ -6,8 +6,15 @@ export default function Scripts() {
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTAG}`}
         strategy="afterInteractive"
+        type="text/plain"
+        data-cookiecategory="analytics"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        type="text/plain"
+        data-cookiecategory="analytics"
+      >
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){window.dataLayer.push(arguments);}
